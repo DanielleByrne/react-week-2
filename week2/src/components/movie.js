@@ -1,6 +1,7 @@
 import React from "react";
 import MovieList from "./MovieList";
 import {Col} from "react-bootstrap"
+import {Row} from "react-bootstrap"
 
 export default class Movie extends React.Component {
   constructor(props) {
@@ -11,12 +12,13 @@ export default class Movie extends React.Component {
       title: props.title,
       description: props.description,
       rating: props.rating,
+      review: props.review
     };
   }
   render() {
     return (
       <>
-      <Col>
+      
         <div className="card movie-card" style={{ width: "19rem" }}>
           <img
             src={this.props.image}
@@ -31,7 +33,13 @@ export default class Movie extends React.Component {
             <li className="list-group-item">{this.props.rating}</li>
           </ul>
         </div>
-        </Col>
+        <Row>
+            <Col className="reviews">
+                <p>Reviews:</p>
+                <p>{this.props.review}</p>
+            </Col>
+        </Row>
+        
       </>
     );
   }
